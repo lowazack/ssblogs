@@ -1,0 +1,80 @@
+/**
+ * Align Items.
+ *
+ * The classes are named using the format:
+ * .{property}-{value}
+ * .{property}-{breakpoint}-{value}
+ *
+ * Examples:
+ * .ai-s        # align-items: stretch;
+ * .ai-c        # align-items: center;
+ * .ai-md-fs    # align-items: flex-start;       # Medium up.
+ * .ai-lg-c     # align-items: center;     # Large up.
+ *
+ * Important has been declared for each statement. This is to override any other
+ * selectors that may be making use of the same property. This is a utility
+ * class. If you don't want this overriding, remove the class from your HTML
+ * element.
+ *
+ * Variables that can be overridden:
+ *  - $align-items--breakpoints   # Breakpoints catered for.
+ */
+
+// CSS properties.
+$align-items--properties: (
+  'ai': 'align-items',
+);
+
+// Which direction for the property.
+$align-items--direction: (
+  's': 'stretch',
+  'c': 'center',
+  'fs': 'flex-start',
+  'fe': 'flex-end',
+);
+
+// The breakpoints.
+$align-items--breakpoints: (
+  'sm':   'small-up',
+  'md':   'medium-up',
+  'lg':   'large-up',
+  'smo':  'small-only',
+  'mdo':  'medium-only',
+) !default;
+
+
+/**
+ * Loop css properties (align-items).
+ */
+@each $property-key, $property-value in $align-items--properties {
+
+  /**
+   * Loop directions (left, right, center, justify).
+   * Outside of breakpoint.
+   */
+  @each $direction-key, $direction-value in $align-items--direction {
+    // Cater for all directions here - .{property}-{value}.
+    .#{$property-key}-#{$direction-key} {
+      #{$property-value}: #{$direction-value} !important;
+    }
+  }
+
+  /**
+   * Loop breakpoints (small, medium, large...).
+   */
+  @each $breakpoint-key, $breakpoint-value in $align-items--breakpoints {
+
+    // Cater for breakpoints here - .{property}-{breakpoint}-{value}.
+    @include breakpoint($breakpoint-value){
+
+      /**
+       * Loop directions (left, right, center, justify).
+       */
+      @each $direction-key, $direction-value in $align-items--direction {
+        .#{$property-key}-#{$breakpoint-key}-#{$direction-key} {
+          #{$property-value}: #{$direction-value} !important;
+        }
+      }
+    }
+  }
+}

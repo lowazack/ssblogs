@@ -1,0 +1,26 @@
+.social-icon {
+
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: relative;
+
+  i {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+  }
+
+  &--facebook { background-color: #3b5998 }
+  &--twitter { background-color: #1fa1f2 }
+  &--g-plus { background-color: #dd4b39 }
+  &--instagram {
+    background: rgb(131,58,180);
+    background: linear-gradient(325deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  }
+
+}

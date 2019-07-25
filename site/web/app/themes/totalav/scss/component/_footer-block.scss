@@ -1,0 +1,101 @@
+/**
+ * footer-block
+ *
+ * Description of the component.
+ */
+.footer-block {
+
+  // Vars.
+  $this: '.footer-block';
+  $primaryColour: #353333;
+  $secondaryColour: #292828;
+
+  $liColour: #d3d3d3;
+
+  // Base styles.
+  background-color: $primaryColour;
+  color: #fff;
+  padding-top: 40px;
+  text-align: center;
+  @include breakpoint('large-up') {
+    text-align: left;
+  }
+
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+      list-style: none;
+      font-size: 14px;
+      color: $liColour;
+      margin-bottom: 5px;
+
+      a {
+        color: $liColour;
+        text-decoration: none;
+      }
+    }
+  }
+
+  img {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .fa {
+    font-size: 20px;
+
+    &--margin {
+      margin: 0 35px;
+    }
+  }
+  h4 {
+    color: #fff;
+  }
+
+  /**
+   * Elements
+   */
+
+  // Element description.
+  &__social {
+    @include breakpoint('large-up') {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #fff;
+
+      &:hover {
+        color: #c52935;
+      }
+    }
+
+    img {
+      @include breakpoint('large-up') {
+        margin: 0 0 20px 0;
+        width: auto;
+      }
+      margin: 20px auto;
+      width: 210px;
+    }
+
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__copyright-block {
+    background-color: $secondaryColour;
+    padding: 20px 0;
+    color: #6d6d6d;
+    margin-top: 40px;
+
+    p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+  }
+
+}

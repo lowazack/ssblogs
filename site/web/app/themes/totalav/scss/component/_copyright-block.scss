@@ -1,0 +1,23 @@
+.copyright-block{
+
+  $this: '.copyright-block';
+
+  // base styles
+
+  @include breakpoint("small-up"){
+    padding: 20px 0 85px 0;
+  }
+
+  @include breakpoint("large-up"){
+    padding: 20px 0;
+  }
+
+  background-color: #1f2c3a;
+  padding: 20px 0;
+  color: #8191a2;
+  a{
+    color: #8191a2;
+    margin-left: 20px;
+  }
+
+}

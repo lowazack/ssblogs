@@ -1,0 +1,59 @@
+/**
+ * Footer
+ */
+.footer {
+
+  // Vars.
+  $this: '.footer';
+
+  // Base styling
+  padding: 30px 0;
+
+  /**
+   * Elements
+   */
+
+  // Container that groups links
+  &__group {
+    margin-bottom: 20px;
+  }
+
+  &__title, &__link {
+    display: block;
+  }
+
+  &__title {
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    color:           black;
+    text-decoration: none;
+    margin-bottom:   5px;
+  }
+
+  &__logo-container {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @include breakpoint('large-up') {
+      text-align: right;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 10px;
+  }
+
+  &__copyright-notice {
+    font-size: 14px;
+  }
+
+
+  /**
+   * Modifiers
+   */
+
+}

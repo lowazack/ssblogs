@@ -1,0 +1,319 @@
+/**
+ * Component Name
+ *
+ * Description of the component.
+ */
+
+.console {
+
+  // Vars.
+  $this: '.console';
+  $languageFlags: "da", "es", "de", "fr", "pt", "it", "nl", "da", "tr", "pl", "sv", "no";
+
+
+  // Base styles.
+
+
+  /**
+   * Elements
+   */
+
+  // Element desription.
+  &__console {
+    background-color: #f3f3f3;
+    position: fixed;
+    width: 100vw;
+    z-index: 300;
+    bottom: 0;
+    display: none;
+    max-height: 100vh;
+    overflow: scroll;
+  }
+
+  &__header {
+    background: rgba(5,117,230,1);
+    background: -moz-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(5,117,230,1)), color-stop(100%, rgba(2,27,121,1)));
+    background: -webkit-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: -o-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: -ms-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: linear-gradient(to right, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0575e6', endColorstr='#021b79', GradientType=1 );
+    padding: 0 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  &__checkbox-label {
+    display: flex;
+    align-items: center;
+    line-height: 2;
+
+    input {
+      margin-right: 10px;
+    }
+  }
+
+  &__tabs-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+
+    @include breakpoint('medium-up'){
+      flex-wrap: nowrap;
+    }
+
+  }
+
+  &__tab {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  &__tabs-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    @include breakpoint('medium-up'){
+      flex-wrap: nowrap;
+    }
+
+  }
+
+  &__tab {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  &__title {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__flag {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-image: url("/img/global/flag/globe.png");
+
+    &--flag-en{ background-image: url("/img/global/flag/gb.png"); }
+
+    @each $flag in $languageFlags {
+      &--flag-#{$flag}{background-image: url("/img/global/flag/#{$flag}.png");}
+    }
+
+  }
+
+  &__loading{
+    font-size: 135px;
+    color: white;
+    height: 135px;
+    width: 135px;
+    position: absolute;
+    top: calc(50% - 67.5px);
+    left: calc(50% - 67.5px);
+
+    animation-name: rotateLoad;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    @keyframes rotateLoad {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+
+      }
+
+    }
+  }
+
+
+  &__response {
+    font-size: 135px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__tab-content {
+    display: none;
+  }
+
+
+  &__console-warning{
+    color: red;
+  }
+
+  &__console-text-area{
+    width: 100%;
+    min-height: 200px;
+    resize: none;
+    height: 200px;
+    border: 0;
+    background-color: #e8ebec;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &__error-container {
+    margin-bottom: 10px;
+    background-color: #ffacac;
+    padding: 10px 10px;
+    border-radius: 3px;
+    color: #111;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  &__list {
+    &--no-style {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border: 0;
+    color: white;
+    transition: all 500ms;
+
+    background: rgba(5,117,230,1);
+    background: -moz-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(5,117,230,1)), color-stop(100%, rgba(2,27,121,1)));
+    background: -webkit-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: -o-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: -ms-linear-gradient(left, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    background: linear-gradient(to right, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0575e6', endColorstr='#021b79', GradientType=1 );
+
+    &:hover {
+      -webkit-box-shadow: inset 0 0 51px 1px rgba(255,255,255,0.41);
+      -moz-box-shadow: inset 0 0 51px 1px rgba(255,255,255,0.41);
+      box-shadow: inset 0 0 51px 1px rgba(255,255,255,0.41);
+    }
+  }
+
+  &__disable {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.78);
+    z-index: 100;
+  }
+
+  &__search-input {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  /**
+   * Modifiers
+   */
+
+  &--show{
+    display: block;
+  }
+  // Modifier description.
+  &--flags {
+    position: fixed;
+    bottom: unset;
+    top: 0;
+    z-index: 3000;
+    width: unset;
+  }
+
+  &--active-tab {
+    display: block;
+  }
+
+  &--response-grow{
+    animation-name: response-grow;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    @keyframes  response-grow{
+      0% {
+        font-size: 100px;
+      }
+
+      100% {
+        font-size: 400px;
+      }
+    }
+  }
+
+
+}
+
+#phuseTranslateMenu{
+  .language-menu-inner-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    transition: width 300ms;
+
+    &:hover{
+      width: auto;
+    }
+  }
+  .translation-globe {
+    font-size: 50px;
+    color: black;
+    background-color: white;
+    padding: 0;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .flag{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &.selected {
+      &:before {
+        content: "\2713";
+        display: flex;
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.54);
+      }
+    }
+  }
+
+}

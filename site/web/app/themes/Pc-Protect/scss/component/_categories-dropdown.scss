@@ -1,0 +1,53 @@
+.categories-dropdown {
+  $this: ".categories-dropdown";
+
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
+  padding: 5px 10px;
+  margin-bottom: 18px;
+  @include breakpoint('medium-up'){
+    display: none;
+  }
+
+
+
+  &__title {
+    font-size: 17px;
+    font-weight: 800;
+    position: relative;
+  }
+
+  &__arrow {
+    font-size: 25px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transition: all 300ms;
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  &__options {
+    height: 0;
+    overflow: hidden;
+    transition: all 500ms;
+  }
+
+  &__option {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 5px 0;
+  }
+
+  &--open {
+
+    #{$this}__arrow {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    #{$this}__options {
+      height: auto;
+    }
+  }
+
+}
+

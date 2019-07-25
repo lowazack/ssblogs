@@ -1,0 +1,82 @@
+/**
+ * Display.
+ *
+ * The classes are named using the format:
+ * .{property}-{value}
+ * .{property}-{breakpoint}-{value}
+ *
+ * Examples:
+ * .d-f        # dislpay: flex;
+ * .d-if-md    # display: inline-flex;    # Medium up.
+ * .d-t-mdo    # display: table;          # Medium only.
+ *
+ * Important has been declared for each statement. This is to override any other
+ * selectors that may be making use of the same property. This is a utility
+ * class. If you don't want this overriding, remove the class from your HTML
+ * element.
+ *
+ * Variables that can be overridden:
+ *  - $display--breakpoints   # Breakpoints catered for.
+ */
+
+// CSS properties.
+$display--properties: (
+  'd':  'display',
+);
+
+// CSS values - this is not an exhaustive list. Feel free to add.
+$display--values: (
+  'n':  'none',
+  'f':  'flex',
+  'if': 'inline-flex',
+  'b':  'block',
+  'ib': 'inline-block',
+  't':  'table',
+  'i':  'inline',
+);
+
+// The breakpoints.
+$display--breakpoints: (
+  'sm':   'small-up',
+  'md':   'medium-up',
+  'lg':   'large-up',
+  'smo':  'small-only',
+  'mdo':  'medium-only',
+) !default;
+
+
+/**
+ * Loop css properties (display).
+ */
+@each $property-key, $property-value in $display--properties {
+
+  /**
+   * Loop values (flex, inline-flex, block...).
+   * Outside of breakpoint.
+   */
+  @each $display-key, $display-value in $display--values {
+    // Cater for all values here - .{property}-{value}.
+    .#{$property-key}-#{$display-key} {
+      #{$property-value}: #{$display-value} !important;
+    }
+  }
+
+  /**
+   * Loop breakpoints (small, medium, large...).
+   */
+  @each $breakpoint-key, $breakpoint-value in $display--breakpoints {
+
+    // Cater for breakpoints here - .{property}-{breakpoint}-{value}.
+    @include breakpoint($breakpoint-value){
+
+      /**
+       * Loop values (flex, inline-flex, block...).
+       */
+      @each $display-key, $display-value in $display--values {
+        .#{$property-key}-#{$breakpoint-key}-#{$display-key} {
+          #{$property-value}: #{$display-value} !important;
+        }
+      }
+    }
+  }
+}

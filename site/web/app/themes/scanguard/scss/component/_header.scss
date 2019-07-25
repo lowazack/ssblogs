@@ -1,0 +1,111 @@
+.header{
+
+  $this: ".header";
+
+  padding: 10px 0;
+  background-color: #000;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.41);
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 3000;
+
+  &__logo{
+    height: 29px;
+  }
+
+  &__slogan {
+    color: white;
+    height: 29px;
+    display: inline-block;
+    vertical-align: sub;
+    line-height: 31px;
+    margin-bottom: 0;
+  }
+
+  &__button{
+    float: right;
+    border-radius: 20px;
+    background-color: #1ad34d;
+    color: white;
+    padding: 3px 17px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 10px;
+    width: calc(50% - 18px);
+
+    @include breakpoint("medium-up") {
+      width: unset;
+    }
+  }
+
+  &--login-button {
+    background-color: #60676c;
+  }
+
+  &__links-container {
+    float: right;
+    display: none;
+
+    @include breakpoint("medium-up") {
+      width: unset;
+      display: block;
+    }
+  }
+
+  &__burger {
+    height: 25px;
+    width: 30px;
+    float: right;
+    position: relative;
+    display: block;
+
+    @include breakpoint("medium-up") {
+      display: none;
+    }
+
+    span {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      position: absolute;
+      border-radius: 5px;
+      &.one{
+        top: 0;
+      }
+      &.two{
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &.three{
+        bottom: 0;
+      }
+    }
+  }
+
+  &__mobile-nav{
+    position: fixed;
+    left: 0;
+    top: 49px;
+    width: 100%;
+    display: none;
+
+    &--show {
+      display: block;
+    }
+
+    &-link {
+      display: block;
+      text-align: center;
+      background-color: #484848;
+      color: white;
+      line-height: 35px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+
+}
+

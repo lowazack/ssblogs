@@ -1,0 +1,17 @@
+.button {
+  font-size: 18px;
+  border: 3px solid black;
+  font-weight: 500;
+  padding: 10px 31px;
+  outline: none;
+  color: black;
+  background-color: white;
+  transition: all 500ms;
+
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+  }
+}

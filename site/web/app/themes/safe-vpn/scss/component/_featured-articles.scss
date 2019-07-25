@@ -1,0 +1,45 @@
+.featured-articles{
+  $this: ".featured-articles";
+  min-height: 360px;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  display: block;
+
+  &__text-container {
+    position: absolute;
+    background-color: #de1616;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0.8729866946778712) 0%, rgba(0,0,0,0.8645833333333334) 61%, rgba(255,255,255,0) 100%);
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  &__tag {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    padding: 5px 10px;
+    background-color: #de1616;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  &--small {
+    min-height: 175px;
+
+    #{$this}__text-container {
+      font-size: 16px;
+    }
+
+    #{$this}__tag {
+      font-size: 12px;
+    }
+  }
+
+}

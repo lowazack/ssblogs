@@ -1,0 +1,194 @@
+.language-dropdown{
+
+  $this: '.language-dropdown';
+
+  // Base Styles
+  @include breakpoint('large-up'){
+    padding: 10px 30px 10px 20px;
+    min-width: 150px;
+    font-size: 14px;
+    display: inline-block;
+    width: auto;
+    position: relative;
+  }
+
+  padding: 10px 20px 10px 20px;
+  display: block;
+  width: 100%;
+  z-index: 2;
+  min-width: 142px;
+  cursor: pointer;
+
+  a{
+    @include breakpoint('large-up'){
+      color: #333333;
+      position: relative;
+      padding: 5px 0;
+      &:hover{
+        color: #333333;
+      }
+    }
+    color: #fff;
+  }
+
+  &:hover{
+    @include breakpoint('large-up')
+    {
+      background-color: #f3f3f3;
+      -webkit-box-shadow: 1px 5px 11px 3px rgba(0, 0, 0, 0.35);
+      -moz-box-shadow: 1px 5px 11px 3px rgba(0, 0, 0, 0.35);
+      box-shadow: 1px 5px 11px 3px rgba(0, 0, 0, 0.35);
+
+      #{$this}{
+        &__dropdown{
+          display: block;
+        }
+      }
+    }
+    background-color: #2D2D2D;
+
+  }
+
+  // Dropdown element
+  &__dropdown {
+    @include breakpoint('large-up') {
+      background-color: #f3f3f3;
+      top:              39px;
+      position:         absolute;
+      left: 0;
+      width: unset;
+      max-width: unset;
+      padding:          10px 20px 10px 20px;
+      height: unset;
+      right:            0;
+      display: none;
+    }
+    margin:           0;
+    position:         absolute;
+    top:              0;
+    right:            -500px;
+    list-style:       none;
+    background-color: #2D2D2D;
+
+    li {
+      margin-bottom: 10px;
+    }
+
+
+    &--mobile-lang-open{
+      right: 0px;
+    }
+
+    // Footer Language Dropdown Modifier
+    &--footer{
+
+      background-color: transparent;
+      padding-left: 20px;
+      top: 16px;
+
+      li{
+        a{
+          color: #fff;
+          &:hover{
+            color: #fff;
+          }
+        }
+      }
+
+    }
+  }
+
+  &__slideout-list {
+
+    @include breakpoint("large-up"){
+      display: none;
+    }
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 20px;
+    transform: translateX(100%);
+    background-color: #2D2D2D;
+    z-index: 4;
+    overflow-y: scroll;
+    padding: 60px 20px 63px 20px;
+    margin: 0;
+
+    li {
+
+      font-size: 20px;
+      padding: 13px 5px;
+      list-style: none;
+
+      a {
+        color: white;
+      }
+
+    }
+
+    &-close{
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #fff;
+      font-size: 50px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    &-element{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 20px;
+      padding: 13px 5px;
+      color: #fff;
+    }
+
+    &[mobile-language-select-slide-active]{
+      transform: none;
+    }
+
+  }
+
+  // Flag eleemnt inside drpdown element
+  &__flag{
+    width: 21px;
+    height: 12px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+    display: inline-block;
+
+    $available-languages: "gb", "de", "fr", "it", "it", "nl", "es", "pt", "us", "ca", "au", "pl", "sv", "no", "da", "tr", "ie", "nz" ;
+    @each $language  in $available-languages {
+      &--#{$language} {
+        background-image: url('/img/global/flag-square/#{$language}.png');
+      }
+    }
+
+  }
+
+  // Footer Language Dropdown Modifier
+  &--footer{
+    color: #fff;
+    padding: 0;
+    display: none;
+    @include breakpoint("large-up"){
+      display: block;
+    }
+    &:hover{
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+
+  &--mobile{
+    @include breakpoint("large-up"){
+      display: none;
+    }
+  }
+
+}
